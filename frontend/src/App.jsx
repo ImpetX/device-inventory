@@ -1,13 +1,12 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Button from '@material-ui/core/Button';
 import makeStyles from '@material-ui/styles/makeStyles';
+import { Button } from './components/lib';
 
 const App = () => {
   const useStyles = makeStyles({
     container: {
-      paddingLeft: '1.5rem',
-      paddingRight: '1.5rem',
+      padding: '1.25rem',
     },
   });
 
@@ -17,9 +16,7 @@ const App = () => {
     <>
       <CssBaseline />
       <div className={classes.container}>
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
+        <Button variant="contained" color="primary" label="Hey!" />
       </div>
     </>
   );
