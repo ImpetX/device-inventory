@@ -1,4 +1,4 @@
 import Button from './Button';
+import PageHeader from './PageHeader';
 
-// eslint-disable-next-line
-export { Button };
+export { Button, PageHeader };
