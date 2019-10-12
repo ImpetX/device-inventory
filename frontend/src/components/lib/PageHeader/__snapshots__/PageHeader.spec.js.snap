@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page Header should render correctly 1`] = `
+<div
+  className="makeStyles-PageHeader-1"
+>
+  <div
+    className="makeStyles-PageHeader__left-2"
+  >
+    <WithStyles(ForwardRef(Typography))
+      component="h2"
+      variant="h4"
+    >
+      Header
+    </WithStyles(ForwardRef(Typography))>
+  </div>
+  <div>
+    <Button
+      color="primary"
+      icon={null}
+      label="button"
+      onClick={[Function]}
+      variant="contained"
+    />
+  </div>
+</div>
+`;
