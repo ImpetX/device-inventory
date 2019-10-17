@@ -1,7 +1,7 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import makeStyles from '@material-ui/styles/makeStyles';
-import { Table } from './components/lib';
+import { ListDevice } from './components';
 
 const App = () => {
   const useStyles = makeStyles({
@@ -16,7 +16,7 @@ const App = () => {
     <>
       <CssBaseline />
       <div className={classes.container}>
-        <Table />
+        <ListDevice />
       </div>
     </>
   );
