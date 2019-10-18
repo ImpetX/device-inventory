@@ -2,11 +2,15 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import makeStyles from '@material-ui/styles/makeStyles';
 import { ListDevice } from './components';
+import { containerPadding } from './tokens';
+import { convertToRem } from './utils';
+
+const { vertical, horizontal } = containerPadding;
 
 const App = () => {
   const useStyles = makeStyles({
     container: {
-      padding: '1.25rem',
+      padding: `${convertToRem(vertical)} ${convertToRem(horizontal)}`,
     },
   });
 
