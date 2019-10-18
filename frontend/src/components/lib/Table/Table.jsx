@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import MuiTable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,17 +8,26 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import makeStyles from '@material-ui/styles/makeStyles';
 
-const useStyles = makeStyles({
-  tableWrapper: {
-    maxHeight: 440,
-    overflow: 'auto',
-  },
-});
-
 const Table = ({ columns, rows }) => {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [paginationElHeight, setPaginationElHeight] = useState(0);
+  const paginationEl = useRef(null);
+
+  useEffect(() => {
+    setPaginationElHeight(paginationEl.current.offsetHeight);
+  }, []);
+
+  const useStyles = makeStyles({
+    tableWrapper: {
+      maxHeight: 'calc(100vh - 10.8rem)',
+      overflow: 'auto',
+    },
+  });
+
+  console.log(paginationElHeight);
+
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -63,6 +72,7 @@ const Table = ({ columns, rows }) => {
         </MuiTable>
       </div>
       <TablePagination
+        ref={paginationEl}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}
