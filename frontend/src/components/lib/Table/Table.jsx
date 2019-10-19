@@ -7,8 +7,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import makeStyles from '@material-ui/styles/makeStyles';
+import { convertToRem } from '../../../utils';
+import { containerSpacing } from '../../../tokens';
 
-const Table = ({ columns, rows }) => {
+const Table = ({ columns, rows, otherHeights }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [paginationElHeight, setPaginationElHeight] = useState(0);
@@ -20,12 +22,12 @@ const Table = ({ columns, rows }) => {
 
   const useStyles = makeStyles({
     tableWrapper: {
-      maxHeight: 'calc(100vh - 10.8rem)',
+      maxHeight: `calc(100vh - ${convertToRem(
+        paginationElHeight + containerSpacing.vertical * 2 + otherHeights
+      )})`,
       overflow: 'auto',
     },
   });
-
-  console.log(paginationElHeight);
 
   const classes = useStyles();
 
@@ -105,6 +107,7 @@ Table.propTypes = {
       id: PropTypes.string,
     })
   ).isRequired,
+  otherHeights: PropTypes.number.isRequired,
 };
 
 export default Table;

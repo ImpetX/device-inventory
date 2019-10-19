@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import grey from '@material-ui/core/colors/grey';
 import makeStyles from '@material-ui/styles/makeStyles';
+import { containerSpacing } from '../../../tokens';
+import { convertToRem } from '../../../utils';
 import Button from '../Button';
 
 const PageHeader = forwardRef((props, ref) => {
@@ -12,7 +14,8 @@ const PageHeader = forwardRef((props, ref) => {
       display: 'flex',
       flexWrap: 'nowrap',
       overflow: 'hidden',
-      padding: '1.25rem .9375rem',
+      padding: `${convertToRem(containerSpacing.vertical)} ${convertToRem(15)}`,
+      marginBottom: `${convertToRem(containerSpacing.vertical)}`,
     },
 
     PageHeader__left: {
@@ -31,7 +34,7 @@ const PageHeader = forwardRef((props, ref) => {
   } = props;
 
   return (
-    <div className={classes.PageHeader} ref={ref}>
+    <div className={classes.PageHeader} ref={ref} id="PageHeader">
       <div className={classes.PageHeader__left}>
         <Typography variant="h4" component="h2">
           {headerText}

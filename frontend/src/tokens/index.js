@@ -1,4 +1,4 @@
-import containerPadding from './containerPadding';
+import containerSpacing from './containerSpacing';
 
 // eslint-disable-next-line
-export { containerPadding };
+export { containerSpacing };
