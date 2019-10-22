@@ -24,7 +24,13 @@ const ListDevice = () => {
         buttonLabel="Add Device"
         onButtonClick={() => console.log('add device')}
       />
-      <Table columns={columns} rows={rows} otherHeights={pageHeaderElHeight} />
+      <Table
+        columns={columns}
+        rows={rows}
+        otherHeights={pageHeaderElHeight}
+        onRowEdit={name => console.log(`edit ${name}`)}
+        onRowDelete={name => console.log(`delete ${name}`)}
+      />
     </>
   );
 };
