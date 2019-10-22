@@ -29,10 +29,18 @@ const columns = [
     align: 'center',
     render: row => <span>{row.size}</span>,
   },
+  {
+    id: 'Action',
+    label: 'Action',
+    minWidth: 170,
+    align: 'center',
+    render: row => <span>{row.density}</span>,
+  },
 ];
 
 function createData(name, code, population, size) {
-  return { name, code, population, size };
+  const density = population / size;
+  return { name, code, population, size, density };
 }
 
 const rows = [
