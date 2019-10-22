@@ -12,6 +12,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { convertToRem } from '../../../utils';
 import { containerSpacing } from '../../../tokens';
+import { columnPropTypes } from './TablePropTypes';
 
 const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
   const [page, setPage] = useState(0);
@@ -124,15 +125,7 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
 };
 
 Table.propTypes = {
-  columns: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      label: PropTypes.string,
-      minWidth: PropTypes.number,
-      align: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
-      render: row => row,
-    })
-  ).isRequired,
+  columns: columnPropTypes.isRequired,
   rows: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
