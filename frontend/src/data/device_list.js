@@ -6,6 +6,7 @@ const columns = [
     label: 'Id',
     minWidth: 170,
     align: 'center',
+    sortable: true,
     render: row => <span>{row.name}</span>,
   },
   {
@@ -13,6 +14,7 @@ const columns = [
     label: 'Name',
     minWidth: 100,
     align: 'center',
+    sortable: true,
     render: row => <span>{row.code}</span>,
   },
   {
@@ -20,6 +22,7 @@ const columns = [
     label: 'Employee',
     minWidth: 170,
     align: 'center',
+    sortable: true,
     render: row => <span>{row.population}</span>,
   },
   {
@@ -27,6 +30,7 @@ const columns = [
     label: 'Department',
     minWidth: 170,
     align: 'center',
+    sortable: true,
     render: row => <span>{row.size}</span>,
   },
 ];
