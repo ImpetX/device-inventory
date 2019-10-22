@@ -7,13 +7,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import makeStyles from '@material-ui/styles/makeStyles';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
 import { convertToRem } from '../../../utils';
 import { containerSpacing } from '../../../tokens';
 
-const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
+const Table = ({ columns, rows, otherHeights }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [paginationElHeight, setPaginationElHeight] = useState(0);
@@ -29,13 +26,6 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
         paginationElHeight + containerSpacing.vertical * 2 + otherHeights
       )})`,
       overflow: 'auto',
-    },
-
-    tableRowActions: {
-      display: 'flex',
-      flexWrap: 'nowrap',
-      alignItems: 'center',
-      justifyContent: 'center',
     },
   });
 
@@ -64,9 +54,6 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
                   {column.label}
                 </TableCell>
               ))}
-              <TableCell align="center" style={{ minWidth: 170 }}>
-                Action
-              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -80,24 +67,6 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
                       </TableCell>
                     );
                   })}
-                  <TableCell align="center" style={{ minWidth: 170 }}>
-                    <div className={classes.tableRowActions}>
-                      <IconButton
-                        color="primary"
-                        aria-label="delete"
-                        onClick={() => onRowEdit(row.name)}
-                      >
-                        <EditIcon />
-                      </IconButton>
-                      <IconButton
-                        color="secondary"
-                        aria-label="delete"
-                        onClick={() => onRowDelete(row.name)}
-                      >
-                        <DeleteIcon />
-                      </IconButton>
-                    </div>
-                  </TableCell>
                 </TableRow>
               );
             })}
@@ -139,8 +108,6 @@ Table.propTypes = {
     })
   ).isRequired,
   otherHeights: PropTypes.number.isRequired,
-  onRowEdit: PropTypes.func.isRequired,
-  onRowDelete: PropTypes.func.isRequired,
 };
 
 export default Table;
