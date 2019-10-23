@@ -10,9 +10,10 @@ import makeStyles from '@material-ui/styles/makeStyles';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import TableHeadCellRenderer from './TableHeadCellRenderer';
 import { convertToRem } from '../../../utils';
 import { containerSpacing } from '../../../tokens';
-import { columnPropTypes } from './TablePropTypes';
+import { columnsPropTypes } from './TablePropTypes';
 
 const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
   const [page, setPage] = useState(0);
@@ -57,13 +58,15 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
           <TableHead>
             <TableRow>
               {columns.map(column => (
-                <TableCell
+                <TableHeadCellRenderer
                   key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
+                  column={column}
+                  order="desc"
+                  orderBy="name"
+                  onRequestSort={(event, property) =>
+                    console.log('property', property)
+                  }
+                />
               ))}
               <TableCell align="center" style={{ minWidth: 170 }}>
                 Action
@@ -125,7 +128,7 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
 };
 
 Table.propTypes = {
-  columns: columnPropTypes.isRequired,
+  columns: columnsPropTypes.isRequired,
   rows: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
