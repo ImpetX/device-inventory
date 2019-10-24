@@ -15,11 +15,21 @@ import { convertToRem } from '../../../utils';
 import { containerSpacing } from '../../../tokens';
 import { columnsPropTypes } from './TablePropTypes';
 
-const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
+const Table = ({
+  columns,
+  rows,
+  otherHeights,
+  onRowEdit,
+  onRowDelete,
+  orderBy: intialOrderBy,
+  onSort,
+}) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [paginationElHeight, setPaginationElHeight] = useState(0);
   const paginationEl = useRef(null);
+  const [order, setOrder] = useState('desc');
+  const [orderBy, setOrderBy] = useState(intialOrderBy);
 
   useEffect(() => {
     setPaginationElHeight(paginationEl.current.offsetHeight);
@@ -51,6 +61,18 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const handleRequestSort = (event, property) => {
+    const isDesc = orderBy === property && order === 'desc';
+
+    setOrderBy(property);
+    setOrder(isDesc ? 'asc' : 'desc');
+  };
+
+  useEffect(() => {
+    onSort(order, orderBy);
+  }, [onSort, order, orderBy]);
+
   return (
     <>
       <div className={classes.tableWrapper}>
@@ -61,10 +83,10 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
                 <TableHeadCellRenderer
                   key={column.id}
                   column={column}
-                  order="desc"
-                  orderBy="name"
+                  order={order}
+                  orderBy={orderBy}
                   onRequestSort={(event, property) =>
-                    console.log('property', property)
+                    handleRequestSort(event, property)
                   }
                 />
               ))}
@@ -137,6 +159,8 @@ Table.propTypes = {
   otherHeights: PropTypes.number.isRequired,
   onRowEdit: PropTypes.func.isRequired,
   onRowDelete: PropTypes.func.isRequired,
+  orderBy: PropTypes.string.isRequired,
+  onSort: PropTypes.func.isRequired,
 };
 
 export default Table;

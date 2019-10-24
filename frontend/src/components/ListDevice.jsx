@@ -28,6 +28,10 @@ const ListDevice = () => {
         columns={columns}
         rows={rows}
         otherHeights={pageHeaderElHeight}
+        orderBy="id"
+        onSort={(order, orderBy) =>
+          console.log(`order ${order} && orderBy ${orderBy}`)
+        }
         onRowEdit={name => console.log(`edit ${name}`)}
         onRowDelete={name => console.log(`delete ${name}`)}
       />
