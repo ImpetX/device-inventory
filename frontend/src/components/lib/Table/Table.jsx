@@ -31,6 +31,7 @@ const Table = ({
   const [order, setOrder] = useState('desc');
   const [orderBy, setOrderBy] = useState(intialOrderBy);
 
+  // table height should fill the available browser height to prevent page scrollbar
   useEffect(() => {
     setPaginationElHeight(paginationEl.current.offsetHeight);
   }, []);
@@ -69,6 +70,7 @@ const Table = ({
     setOrder(isDesc ? 'asc' : 'desc');
   };
 
+  // onSort API to apply side effects after sorting
   useEffect(() => {
     onSort(order, orderBy);
   }, [onSort, order, orderBy]);
