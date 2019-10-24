@@ -48,7 +48,6 @@ const Table = ({
       display: 'flex',
       flexWrap: 'nowrap',
       alignItems: 'center',
-      justifyContent: 'center',
     },
   });
 
@@ -84,6 +83,7 @@ const Table = ({
               {columns.map(column => (
                 <TableHeadCellRenderer
                   key={column.id}
+                  align="left"
                   column={column}
                   order={order}
                   orderBy={orderBy}
@@ -92,7 +92,7 @@ const Table = ({
                   }
                 />
               ))}
-              <TableCell align="center" style={{ minWidth: 170 }}>
+              <TableCell align="left" style={{ minWidth: 170 }}>
                 Action
               </TableCell>
             </TableRow>
@@ -108,7 +108,7 @@ const Table = ({
                       </TableCell>
                     );
                   })}
-                  <TableCell align="center" style={{ minWidth: 170 }}>
+                  <TableCell align="left" style={{ minWidth: 170 }}>
                     <div className={classes.tableRowActions}>
                       <IconButton
                         color="primary"

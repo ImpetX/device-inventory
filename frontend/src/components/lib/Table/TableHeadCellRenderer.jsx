@@ -3,10 +3,17 @@ import TableCell from '@material-ui/core/TableCell';
 import EnhancedTableCell from './EnhancedTableCell';
 import { enhancedTableCellPropTypes } from './TablePropTypes';
 
-const TableHeadCellRenderer = ({ column, order, orderBy, onRequestSort }) => (
+const TableHeadCellRenderer = ({
+  column,
+  align,
+  order,
+  orderBy,
+  onRequestSort,
+}) => (
   <>
     {column.sortable ? (
       <EnhancedTableCell
+        align={align}
         column={column}
         order={order}
         orderBy={orderBy}
@@ -15,7 +22,7 @@ const TableHeadCellRenderer = ({ column, order, orderBy, onRequestSort }) => (
     ) : (
       <TableCell
         key={column.id}
-        align={column.align}
+        align={align}
         style={{ minWidth: column.minWidth }}
       >
         {column.label}

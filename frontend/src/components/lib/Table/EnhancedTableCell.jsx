@@ -3,7 +3,13 @@ import TableCell from '@material-ui/core/TableCell';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { enhancedTableCellPropTypes } from './TablePropTypes';
 
-const EnhancedTableCell = ({ column, order, orderBy, onRequestSort }) => {
+const EnhancedTableCell = ({
+  column,
+  align,
+  order,
+  orderBy,
+  onRequestSort,
+}) => {
   const createSortHandler = property => event => {
     onRequestSort(event, property);
   };
@@ -11,7 +17,7 @@ const EnhancedTableCell = ({ column, order, orderBy, onRequestSort }) => {
   return (
     <TableCell
       key={column.id}
-      align={column.align}
+      align={align}
       sortDirection={orderBy === column.id ? order : false}
       style={{ minWidth: column.minWidth }}
     >
