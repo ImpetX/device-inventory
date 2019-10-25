@@ -1,7 +1,7 @@
 import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
-import EnhancedTableCell from './EnhancedTableCell';
 import { enhancedTableCellPropTypes } from './TablePropTypes';
+import EnhancedTableCell from './EnhancedTableCell';
 
 const TableHeadCellRenderer = ({
   column,
