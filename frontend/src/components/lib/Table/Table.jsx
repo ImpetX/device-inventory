@@ -10,15 +10,28 @@ import makeStyles from '@material-ui/styles/makeStyles';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import TableHeadCellRenderer from './TableHeadCellRenderer';
 import { convertToRem } from '../../../utils';
 import { containerSpacing } from '../../../tokens';
+import { columnsPropTypes } from './TablePropTypes';
 
-const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
+const Table = ({
+  columns,
+  rows,
+  otherHeights,
+  onRowEdit,
+  onRowDelete,
+  orderBy: intialOrderBy,
+  onSort,
+}) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [paginationElHeight, setPaginationElHeight] = useState(0);
   const paginationEl = useRef(null);
+  const [order, setOrder] = useState('desc');
+  const [orderBy, setOrderBy] = useState(intialOrderBy);
 
+  // table height should fill the available browser height to prevent page scrollbar
   useEffect(() => {
     setPaginationElHeight(paginationEl.current.offsetHeight);
   }, []);
@@ -35,7 +48,6 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
       display: 'flex',
       flexWrap: 'nowrap',
       alignItems: 'center',
-      justifyContent: 'center',
     },
   });
 
@@ -49,6 +61,19 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const handleRequestSort = (event, property) => {
+    const isDesc = orderBy === property && order === 'desc';
+
+    setOrderBy(property);
+    setOrder(isDesc ? 'asc' : 'desc');
+  };
+
+  // onSort API to apply side effects after sorting
+  useEffect(() => {
+    onSort(order, orderBy);
+  }, [onSort, order, orderBy]);
+
   return (
     <>
       <div className={classes.tableWrapper}>
@@ -56,15 +81,18 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
           <TableHead>
             <TableRow>
               {columns.map(column => (
-                <TableCell
+                <TableHeadCellRenderer
                   key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
+                  align="left"
+                  column={column}
+                  order={order}
+                  orderBy={orderBy}
+                  onRequestSort={(event, property) =>
+                    handleRequestSort(event, property)
+                  }
+                />
               ))}
-              <TableCell align="center" style={{ minWidth: 170 }}>
+              <TableCell align="left" style={{ minWidth: 170 }}>
                 Action
               </TableCell>
             </TableRow>
@@ -80,7 +108,7 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
                       </TableCell>
                     );
                   })}
-                  <TableCell align="center" style={{ minWidth: 170 }}>
+                  <TableCell align="left" style={{ minWidth: 170 }}>
                     <div className={classes.tableRowActions}>
                       <IconButton
                         color="primary"
@@ -124,15 +152,7 @@ const Table = ({ columns, rows, otherHeights, onRowEdit, onRowDelete }) => {
 };
 
 Table.propTypes = {
-  columns: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      label: PropTypes.string,
-      minWidth: PropTypes.number,
-      align: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
-      render: row => row,
-    })
-  ).isRequired,
+  columns: columnsPropTypes.isRequired,
   rows: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -141,6 +161,8 @@ Table.propTypes = {
   otherHeights: PropTypes.number.isRequired,
   onRowEdit: PropTypes.func.isRequired,
   onRowDelete: PropTypes.func.isRequired,
+  orderBy: PropTypes.string.isRequired,
+  onSort: PropTypes.func.isRequired,
 };
 
 export default Table;
