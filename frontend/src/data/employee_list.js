@@ -1,38 +1,38 @@
 import React from 'react';
 
-function createData(name, code, population, size) {
-  return { name, code, population, size };
+function createData(id, name, department, joiningDate) {
+  return { id, name, department, joiningDate };
 }
 
-const deviceListData = {
+const employeeListData = {
   columns: [
     {
       id: 'id',
       label: 'Id',
       minWidth: 170,
       sortable: true,
-      render: row => <span>{row.name}</span>,
+      render: row => <span>{row.id}</span>,
     },
     {
       id: 'name',
       label: 'Name',
       minWidth: 100,
       sortable: true,
-      render: row => <span>{row.code}</span>,
+      render: row => <span>{row.name}</span>,
     },
     {
-      id: 'Employee',
-      label: 'Employee',
-      minWidth: 170,
-      sortable: true,
-      render: row => <span>{row.population}</span>,
-    },
-    {
-      id: 'Department',
+      id: 'department',
       label: 'Department',
       minWidth: 170,
       sortable: true,
-      render: row => <span>{row.size}</span>,
+      render: row => <span>{row.department}</span>,
+    },
+    {
+      id: 'joining_date',
+      label: 'Joining Date',
+      minWidth: 170,
+      sortable: true,
+      render: row => <span>{row.joiningDate}</span>,
     },
   ],
   rows: [
@@ -54,4 +54,4 @@ const deviceListData = {
   ],
 };
 
-export default deviceListData;
+export default employeeListData;

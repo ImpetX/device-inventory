@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { PageHeader, Table } from './lib';
-import { deviceListColumns as columns, deviceListRows as rows } from '../data';
+import { employeeListData } from '../data';
+
+const { columns, rows } = employeeListData;
 
 const ListEmployee = () => {
   const PageHeaderEl = useRef(null);
