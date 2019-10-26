@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { PageHeader, Table } from './lib';
-import { deviceListData } from '../data';
+import { employeeListData } from '../data';
 
-const { columns, rows } = deviceListData;
+const { columns, rows } = employeeListData;
 
-const ListDevice = () => {
+const ListEmployee = () => {
   const PageHeaderEl = useRef(null);
   const [pageHeaderElHeight, setPageHeaderElHeight] = useState(0);
 
@@ -22,9 +22,9 @@ const ListDevice = () => {
     <>
       <PageHeader
         ref={PageHeaderEl}
-        headerText="Device List"
-        buttonLabel="Add Device"
-        onButtonClick={() => console.log('add device')}
+        headerText="Employee List"
+        buttonLabel="Add Employee"
+        onButtonClick={() => console.log('add employee')}
       />
       <Table
         columns={columns}
@@ -34,11 +34,10 @@ const ListDevice = () => {
         onSort={(order, orderBy) =>
           console.log(`order ${order} && orderBy ${orderBy}`)
         }
-        onRowEdit={name => console.log(`edit ${name}`)}
         onRowDelete={name => console.log(`delete ${name}`)}
       />
     </>
   );
 };
 
-export default ListDevice;
+export default ListEmployee;

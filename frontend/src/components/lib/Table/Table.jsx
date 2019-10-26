@@ -110,13 +110,15 @@ const Table = ({
                   })}
                   <TableCell align="left" style={{ minWidth: 170 }}>
                     <div className={classes.tableRowActions}>
-                      <IconButton
-                        color="primary"
-                        aria-label="delete"
-                        onClick={() => onRowEdit(row.name)}
-                      >
-                        <EditIcon />
-                      </IconButton>
+                      {onRowEdit && (
+                        <IconButton
+                          color="primary"
+                          aria-label="edit"
+                          onClick={() => onRowEdit(row.name)}
+                        >
+                          <EditIcon />
+                        </IconButton>
+                      )}
                       <IconButton
                         color="secondary"
                         aria-label="delete"
@@ -159,10 +161,14 @@ Table.propTypes = {
     })
   ).isRequired,
   otherHeights: PropTypes.number.isRequired,
-  onRowEdit: PropTypes.func.isRequired,
+  onRowEdit: PropTypes.func,
   onRowDelete: PropTypes.func.isRequired,
   orderBy: PropTypes.string.isRequired,
   onSort: PropTypes.func.isRequired,
+};
+
+Table.defaultProps = {
+  onRowEdit: undefined,
 };
 
 export default Table;

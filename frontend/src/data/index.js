@@ -1,6 +1,4 @@
-import {
-  columns as deviceListColumns,
-  rows as deviceListRows,
-} from './device_list';
+import deviceListData from './device_list';
+import employeeListData from './employee_list';
 
-export { deviceListColumns, deviceListRows };
+export { deviceListData, employeeListData };
