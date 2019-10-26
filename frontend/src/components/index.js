@@ -1,4 +1,4 @@
 import ListDevice from './ListDevice';
+import ListEmployee from './ListEmployee';
 
-// eslint-disable-next-line
-export { ListDevice };
+export { ListDevice, ListEmployee };
