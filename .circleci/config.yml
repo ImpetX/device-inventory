@@ -1,0 +1,28 @@
+# JavaScript NodeJS CircleCI 2.0 configuration file
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+
+version: 2.0
+jobs:
+  build:
+    working_directory: ~/device-inventory
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-cache-{{ checksum "./frontend/package.json" }}
+            - v1-dependencies-cache-
+      - run:
+          name: install-npm-package
+          command: cd frontend && npm i
+      - save_cache:
+          key: v1-dependencies-cache-{{ checksum "./frontend/package.json" }}
+          paths:
+            - ~/device-inventory/frontend/node_modules
+      - run:
+          name: lint
+          command: cd frontend && npm run eslint
+      - run:
+          name: test
+          command: cd frontend && npm test
