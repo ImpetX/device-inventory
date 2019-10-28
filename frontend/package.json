@@ -26,7 +26,10 @@
     "start": "PORT=3300 EXTEND_ESLINT=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:update-snapshot": "react-scripts test -u",
+    "eject": "react-scripts eject",
+    "eslint": "eslint --ext .jsx --ext .js src",
+    "eslint:autofix": "eslint --fix --ext .jsx --ext .js src"
   },
   "eslintConfig": {
     "extends": "react-app"

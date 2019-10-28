@@ -3,6 +3,7 @@
 exports[`Page Header should render correctly 1`] = `
 <div
   className="makeStyles-PageHeader-1"
+  id="PageHeader"
 >
   <div
     className="makeStyles-PageHeader__left-2"
