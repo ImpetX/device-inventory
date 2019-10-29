@@ -1,7 +1,7 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import makeStyles from '@material-ui/styles/makeStyles';
-import { ListEmployee } from './components';
+import { AddEmployee } from './components';
 import { containerSpacing } from './tokens';
 import { convertToRem } from './utils';
 
@@ -20,7 +20,7 @@ const App = () => {
     <>
       <CssBaseline />
       <div className={classes.container}>
-        <ListEmployee />
+        <AddEmployee />
       </div>
     </>
   );
