@@ -1,5 +1,6 @@
 import React from 'react';
+import { PageHeader } from './lib';
 
-const AddEmployee = () => <h2>Add Employee</h2>;
+const AddEmployee = () => <PageHeader headerText="Add Employee" />;
 
 export default AddEmployee;

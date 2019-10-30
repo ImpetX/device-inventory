@@ -40,15 +40,17 @@ const PageHeader = forwardRef((props, ref) => {
           {headerText}
         </Typography>
       </div>
-      <div>
-        <Button
-          color="primary"
-          icon={buttonIcon}
-          label={buttonLabel}
-          variant={buttonVariant}
-          onClick={e => onButtonClick(e)}
-        />
-      </div>
+      {buttonLabel && (
+        <div>
+          <Button
+            color="primary"
+            icon={buttonIcon}
+            label={buttonLabel}
+            variant={buttonVariant}
+            onClick={e => onButtonClick(e)}
+          />
+        </div>
+      )}
     </div>
   );
 });
