@@ -57,6 +57,7 @@ const AddEmployee = () => {
               variant="inline"
               format="MM/DD/YYYY"
               id="birthdate"
+              name="birthdate"
               label="BirthDate"
               KeyboardButtonProps={{
                 'aria-label': 'change date',
@@ -88,6 +89,7 @@ const AddEmployee = () => {
               variant="inline"
               format="MM/DD/YYYY"
               id="joiningDate"
+              name="joiningDate"
               label="Joining Date"
               KeyboardButtonProps={{
                 'aria-label': 'change date',
@@ -95,6 +97,30 @@ const AddEmployee = () => {
               fullWidth
             />
           </MuiPickersUtilsProvider>
+        </Box>
+        <Box mb={marginBottom}>
+          <TextField
+            required
+            multiline
+            rows="3"
+            type="text"
+            id="presentAddress"
+            name="presentAddress"
+            label="Present Address"
+            fullWidth
+          />
+        </Box>
+        <Box mb={marginBottom}>
+          <TextField
+            required
+            multiline
+            rows="3"
+            type="text"
+            id="permanentAddress"
+            name="permanentAddress"
+            label="Permanent Address"
+            fullWidth
+          />
         </Box>
       </Form>
     </>
