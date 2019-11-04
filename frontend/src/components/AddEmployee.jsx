@@ -1,7 +1,13 @@
+import 'date-fns';
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import MenuItem from '@material-ui/core/MenuItem';
+import DateFnUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 import { PageHeader, Form } from './lib';
 
 const genders = [
@@ -17,7 +23,8 @@ const genders = [
 ];
 
 const AddEmployee = () => {
-  const marginBottom = 1.25;
+  // The resultant gets multiplied with the base value 8
+  const marginBottom = 15 / 8;
 
   return (
     <>
@@ -44,14 +51,19 @@ const AddEmployee = () => {
           />
         </Box>
         <Box mb={marginBottom}>
-          <TextField
-            required
-            type="date"
-            id="bithdate"
-            name="birthdate"
-            label="Birthdate"
-            fullWidth
-          />
+          <MuiPickersUtilsProvider utils={DateFnUtils}>
+            <KeyboardDatePicker
+              disableToolbar
+              variant="inline"
+              format="MM/DD/YYYY"
+              id="birthdate"
+              label="BirthDate"
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+              fullWidth
+            />
+          </MuiPickersUtilsProvider>
         </Box>
         <Box mb={marginBottom}>
           <TextField
@@ -70,14 +82,19 @@ const AddEmployee = () => {
           </TextField>
         </Box>
         <Box mb={marginBottom}>
-          <TextField
-            required
-            type="date"
-            id="joiningDate"
-            name="joiningdate"
-            label="Joining Date"
-            fullWidth
-          />
+          <MuiPickersUtilsProvider utils={DateFnUtils}>
+            <KeyboardDatePicker
+              disableToolbar
+              variant="inline"
+              format="MM/DD/YYYY"
+              id="joiningDate"
+              label="Joining Date"
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+              fullWidth
+            />
+          </MuiPickersUtilsProvider>
         </Box>
       </Form>
     </>
