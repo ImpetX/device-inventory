@@ -22,6 +22,48 @@ const genders = [
   },
 ];
 
+const bloodGroups = [
+  {
+    label: 'A+',
+    value: 'A+',
+  },
+
+  {
+    label: 'A-',
+    value: 'A-',
+  },
+
+  {
+    label: 'B+',
+    value: 'B+',
+  },
+
+  {
+    label: 'B-',
+    value: 'B-',
+  },
+
+  {
+    label: 'AB+',
+    value: 'AB+',
+  },
+
+  {
+    label: 'AB-',
+    value: 'AB-',
+  },
+
+  {
+    label: 'O+',
+    value: 'O+',
+  },
+
+  {
+    label: 'O-',
+    value: 'O-',
+  },
+];
+
 const AddEmployee = () => {
   // The resultant gets multiplied with the base value 8
   const marginBottom = 15 / 8;
@@ -55,7 +97,7 @@ const AddEmployee = () => {
             <KeyboardDatePicker
               disableToolbar
               variant="inline"
-              format="MM/DD/YYYY"
+              format="mm/dd/yyyy"
               id="birthdate"
               name="birthdate"
               label="BirthDate"
@@ -87,7 +129,7 @@ const AddEmployee = () => {
             <KeyboardDatePicker
               disableToolbar
               variant="inline"
-              format="MM/DD/YYYY"
+              format="mm/dd/yyyy"
               id="joiningDate"
               name="joiningDate"
               label="Joining Date"
@@ -119,6 +161,62 @@ const AddEmployee = () => {
             id="permanentAddress"
             name="permanentAddress"
             label="Permanent Address"
+            fullWidth
+          />
+        </Box>
+        <Box mb={marginBottom}>
+          <TextField
+            required
+            type="text"
+            id="nid"
+            name="nid"
+            label="National Identification Number (NID)"
+            fullWidth
+          />
+        </Box>
+        <Box mb={marginBottom}>
+          <TextField
+            required
+            select
+            id="bloodGroup"
+            name="bloodGroup"
+            label="Blood Group"
+            fullWidth
+          >
+            {bloodGroups.map(bloodGroup => (
+              <MenuItem key={bloodGroup.label} value={bloodGroup.value}>
+                {bloodGroup.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Box>
+        <Box mb={marginBottom}>
+          <TextField
+            required
+            type="text"
+            id="emergencyContactName"
+            name="emergencyContactName"
+            label="Emergency Contact Name"
+            fullWidth
+          />
+        </Box>
+        <Box mb={marginBottom}>
+          <TextField
+            required
+            type="tel"
+            id="emergencyContactNumber"
+            name="emergencyContactNumber"
+            label="Emergency Contact Number"
+            fullWidth
+          />
+        </Box>
+        <Box mb={marginBottom}>
+          <TextField
+            required
+            type="text"
+            id="emergencyContactRelation"
+            name="emergencyContactRelation"
+            label="Relation With The Emergency Contact"
             fullWidth
           />
         </Box>
