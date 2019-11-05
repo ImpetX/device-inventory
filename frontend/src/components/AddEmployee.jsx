@@ -8,7 +8,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import { PageHeader, Form } from './lib';
+import { PageHeader, Form, Button } from './lib';
 
 const genders = [
   {
@@ -218,6 +218,26 @@ const AddEmployee = () => {
             name="emergencyContactRelation"
             label="Relation With The Emergency Contact"
             fullWidth
+          />
+        </Box>
+        <Box>
+          <Button
+            label="Save"
+            color="primary"
+            variant="contained"
+            onClick={() => console.log('employee added')}
+          />
+
+          <Button
+            label="Cancel"
+            variant="contained"
+            onClick={() => console.log('employee canceled')}
+          />
+
+          <Button
+            label="Device List"
+            variant="contained"
+            onClick={() => console.log('device list page')}
           />
         </Box>
       </Form>
