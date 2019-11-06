@@ -8,7 +8,7 @@ const Form = forwardRef((props, ref) => {
 
   const useStyles = makeStyles({
     Form: {
-      maxWidth: `${convertToRem(300)}`,
+      maxWidth: `${convertToRem(400)}`,
     },
   });
 
