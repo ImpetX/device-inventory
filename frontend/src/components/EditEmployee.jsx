@@ -17,7 +17,7 @@ const EditEmployee = () => {
 
   return (
     <>
-      <PageHeader headerText="Add Employee" />
+      <PageHeader headerText="Edit Employee" />
       <Form onSubmit={() => 'form submitted'}>
         <Box mb={3.13}>
           <Box mb={marginBottom}>
@@ -46,9 +46,9 @@ const EditEmployee = () => {
                 disableToolbar
                 variant="inline"
                 format="mm/dd/yyyy"
-                id="birthdate"
-                name="birthdate"
-                label="BirthDate"
+                id="dateOfBirth"
+                name="dateOfBirth"
+                label="Date Of Birth"
                 KeyboardButtonProps={{
                   'aria-label': 'change date',
                 }}
@@ -78,9 +78,9 @@ const EditEmployee = () => {
                 disableToolbar
                 variant="inline"
                 format="mm/dd/yyyy"
-                id="joiningDate"
-                name="joiningDate"
-                label="Joining Date"
+                id="dateOfJoining"
+                name="dateOfJoining"
+                label="Date Of Joining"
                 KeyboardButtonProps={{
                   'aria-label': 'change date',
                 }}
@@ -187,9 +187,10 @@ const EditEmployee = () => {
           </Box>
           <Box component="span">
             <Button
-              label="Device List"
+              label="Delete"
+              color="secondary"
               variant="contained"
-              onClick={() => console.log('device list page')}
+              onClick={() => console.log('employee deleted')}
             />
           </Box>
         </Box>

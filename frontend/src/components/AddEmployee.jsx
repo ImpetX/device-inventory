@@ -46,9 +46,9 @@ const AddEmployee = () => {
                 disableToolbar
                 variant="inline"
                 format="mm/dd/yyyy"
-                id="birthdate"
-                name="birthdate"
-                label="BirthDate"
+                id="dateOfBirth"
+                name="dateOfBirth"
+                label="Date Of Birth"
                 KeyboardButtonProps={{
                   'aria-label': 'change date',
                 }}
@@ -78,9 +78,9 @@ const AddEmployee = () => {
                 disableToolbar
                 variant="inline"
                 format="mm/dd/yyyy"
-                id="joiningDate"
-                name="joiningDate"
-                label="Joining Date"
+                id="dateOfJoining"
+                name="dateOfJoining"
+                label="Date Of Joining"
                 KeyboardButtonProps={{
                   'aria-label': 'change date',
                 }}
