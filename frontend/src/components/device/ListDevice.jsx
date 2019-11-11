@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { PageHeader, Table } from './lib';
-import { deviceListData } from '../data';
+import { PageHeader, Table } from '../lib';
+import { deviceListData } from '../../data';
 
 const { columns, rows } = deviceListData;
 

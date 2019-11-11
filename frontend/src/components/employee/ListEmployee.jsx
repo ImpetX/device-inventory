@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { PageHeader, Table } from './lib';
-import { employeeListData } from '../data';
+import { PageHeader, Table } from '../lib';
+import { employeeListData } from '../../data';
 
 const { columns, rows } = employeeListData;
 

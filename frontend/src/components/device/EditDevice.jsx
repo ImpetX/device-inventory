@@ -8,8 +8,8 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import { PageHeader, Form, Button } from './lib';
-import { genders, bloodGroups } from '../data';
+import { PageHeader, Form, Button } from '../lib';
+import { genders, bloodGroups } from '../../data';
 
 const EditDevice = () => {
   // The resultant gets multiplied with the base value 8
