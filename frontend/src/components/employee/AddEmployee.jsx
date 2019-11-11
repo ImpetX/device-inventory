@@ -8,16 +8,16 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import { PageHeader, Form, Button } from './lib';
-import { genders, bloodGroups } from '../data';
+import { PageHeader, Form, Button } from '../lib';
+import { genders, bloodGroups } from '../../data';
 
-const EditEmployee = () => {
+const AddEmployee = () => {
   // The resultant gets multiplied with the base value 8
   const marginBottom = 15 / 8;
 
   return (
     <>
-      <PageHeader headerText="Edit Employee" />
+      <PageHeader headerText="Add Employee" />
       <Form onSubmit={() => 'form submitted'}>
         <Box mb={3.13}>
           <Box mb={marginBottom}>
@@ -187,10 +187,9 @@ const EditEmployee = () => {
           </Box>
           <Box component="span">
             <Button
-              label="Delete"
-              color="secondary"
+              label="Device List"
               variant="contained"
-              onClick={() => console.log('employee deleted')}
+              onClick={() => console.log('device list page')}
             />
           </Box>
         </Box>
@@ -199,4 +198,4 @@ const EditEmployee = () => {
   );
 };
 
-export default EditEmployee;
+export default AddEmployee;

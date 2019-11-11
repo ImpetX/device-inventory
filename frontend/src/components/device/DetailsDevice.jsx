@@ -1,11 +1,11 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import { PageHeader, Button } from './lib';
+import { PageHeader, Button } from '../lib';
 
-const DetailsEmployee = () => (
+const DetailsDevice = () => (
   <>
-    <PageHeader headerText="Employee Details" />
-    <Box mb={1.25}>Name: Kamal Sharif</Box>
+    <PageHeader headerText="Device Details" />
+    <Box mb={1.25}>Device Name: HP Laptop</Box>
     <Box>
       <Button
         label="Edit"
@@ -17,4 +17,4 @@ const DetailsEmployee = () => (
   </>
 );
 
-export default DetailsEmployee;
+export default DetailsDevice;

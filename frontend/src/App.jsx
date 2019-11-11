@@ -1,7 +1,8 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import makeStyles from '@material-ui/styles/makeStyles';
-import { DetailsEmployee } from './components';
+// eslint-disable-next-line import/named
+import { DetailsEmployee } from './components/employee';
 import { containerSpacing } from './tokens';
 import { convertToRem } from './utils';
 
