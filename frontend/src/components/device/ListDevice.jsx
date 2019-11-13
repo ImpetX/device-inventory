@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { createBrowserHistory } from 'history';
 import { PageHeader, Table } from '../lib';
 import { deviceListData } from '../../data';
 
+const history = createBrowserHistory();
 const { columns, rows } = deviceListData;
 
 const ListDevice = () => {
@@ -24,7 +26,9 @@ const ListDevice = () => {
         ref={PageHeaderEl}
         headerText="Device List"
         buttonLabel="Add Device"
-        onButtonClick={() => console.log('add device')}
+        onButtonClick={() => {
+          history.push('/device/add');
+        }}
       />
       <Table
         columns={columns}
