@@ -6,8 +6,14 @@ import {
   ListEmployee,
   AddEmployee,
   DetailsEmployee,
+  EditEmployee,
 } from './components/employee';
-import { ListDevice, AddDevice, DetailsDevice } from './components/device';
+import {
+  ListDevice,
+  AddDevice,
+  DetailsDevice,
+  EditDevice,
+} from './components/device';
 import { containerSpacing } from './tokens';
 import { convertToRem } from './utils';
 
@@ -35,6 +41,9 @@ const App = () => {
         <Route exact path="/devices/:id">
           <DetailsDevice />
         </Route>
+        <Route exact path="/devices/:id/edit">
+          <EditDevice />
+        </Route>
         <Route exact path="/employees">
           <ListEmployee />
         </Route>
@@ -43,6 +52,9 @@ const App = () => {
         </Route>
         <Route exact path="/employees/:id">
           <DetailsEmployee />
+        </Route>
+        <Route exact path="/employees/:id/edit">
+          <EditEmployee />
         </Route>
       </div>
     </Router>
