@@ -1,7 +1,7 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import makeStyles from '@material-ui/styles/makeStyles';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import {
   ListEmployee,
   AddEmployee,
@@ -32,6 +32,7 @@ const App = () => {
     <Router>
       <CssBaseline />
       <div className={classes.container}>
+        <Redirect from="/" to="/devices" />
         <Route exact path="/devices">
           <ListDevice />
         </Route>
