@@ -1,14 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { createBrowserHistory } from 'history';
+import { useHistory } from 'react-router-dom';
 import { PageHeader, Table } from '../lib';
 import { deviceListData } from '../../data';
 
-const history = createBrowserHistory();
 const { columns, rows } = deviceListData;
 
 const ListDevice = () => {
   const PageHeaderEl = useRef(null);
   const [pageHeaderElHeight, setPageHeaderElHeight] = useState(0);
+  const history = useHistory();
 
   useEffect(() => {
     const el = document.getElementById('PageHeader');
