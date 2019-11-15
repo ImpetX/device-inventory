@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { PageHeader, Table } from '../lib';
 import { deviceListData } from '../../data';
 
@@ -7,6 +8,7 @@ const { columns, rows } = deviceListData;
 const ListDevice = () => {
   const PageHeaderEl = useRef(null);
   const [pageHeaderElHeight, setPageHeaderElHeight] = useState(0);
+  const history = useHistory();
 
   useEffect(() => {
     const el = document.getElementById('PageHeader');
@@ -24,7 +26,9 @@ const ListDevice = () => {
         ref={PageHeaderEl}
         headerText="Device List"
         buttonLabel="Add Device"
-        onButtonClick={() => console.log('add device')}
+        onButtonClick={() => {
+          history.push('/device/add');
+        }}
       />
       <Table
         columns={columns}
@@ -34,7 +38,7 @@ const ListDevice = () => {
         onSort={(order, orderBy) =>
           console.log(`order ${order} && orderBy ${orderBy}`)
         }
-        onRowEdit={name => console.log(`edit ${name}`)}
+        onRowEdit={name => history.push(`/devices/${name}/edit`)}
         onRowDelete={name => console.log(`delete ${name}`)}
       />
     </>
