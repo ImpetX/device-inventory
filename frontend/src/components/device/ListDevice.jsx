@@ -38,7 +38,7 @@ const ListDevice = () => {
         onSort={(order, orderBy) =>
           console.log(`order ${order} && orderBy ${orderBy}`)
         }
-        onRowEdit={name => console.log(`edit ${name}`)}
+        onRowEdit={name => history.push(`/devices/${name}/edit`)}
         onRowDelete={name => console.log(`delete ${name}`)}
       />
     </>

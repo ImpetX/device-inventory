@@ -1,5 +1,6 @@
 import 'date-fns';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -12,6 +13,8 @@ import { PageHeader, Form, Button } from '../lib';
 import { genders, bloodGroups } from '../../data';
 
 const AddDevice = () => {
+  const history = useHistory();
+
   // The resultant gets multiplied with the base value 8
   const marginBottom = 15 / 8;
 
@@ -125,7 +128,7 @@ const AddDevice = () => {
             <Button
               label="Device List"
               variant="contained"
-              onClick={() => console.log('device list page')}
+              onClick={() => history.push('/devices')}
             />
           </Box>
         </Box>

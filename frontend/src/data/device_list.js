@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function createData(name, code, population, size) {
   return { name, code, population, size };
@@ -11,7 +12,11 @@ const deviceListData = {
       label: 'Id',
       minWidth: 170,
       sortable: true,
-      render: row => <span>{row.name}</span>,
+      render: row => (
+        <Link to={`devices/${row.code}`}>
+          <span>{row.name}</span>
+        </Link>
+      ),
     },
     {
       id: 'name',
@@ -25,7 +30,11 @@ const deviceListData = {
       label: 'Employee',
       minWidth: 170,
       sortable: true,
-      render: row => <span>{row.population}</span>,
+      render: row => (
+        <Link to={`/employees/${row.name}`}>
+          <span>{row.population}</span>
+        </Link>
+      ),
     },
     {
       id: 'Department',
