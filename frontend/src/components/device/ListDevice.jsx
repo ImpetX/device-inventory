@@ -8,7 +8,12 @@ const { columns, rows } = deviceListData;
 const ListDevice = () => {
   const PageHeaderEl = useRef(null);
   const [pageHeaderElHeight, setPageHeaderElHeight] = useState(0);
+  const [checked, setChecked] = useState(false);
   const history = useHistory();
+
+  const handleSwitchChange = event => {
+    setChecked(event.target.checked);
+  };
 
   useEffect(() => {
     const el = document.getElementById('PageHeader');
@@ -24,11 +29,14 @@ const ListDevice = () => {
     <>
       <PageHeader
         ref={PageHeaderEl}
+        checked={checked}
         headerText="Device List"
-        buttonLabel="Add Device"
+        buttonLabel={`Add ${checked ? 'Employee' : 'Device'}`}
+        switchLabel="New employee?"
         onButtonClick={() => {
-          history.push('/device/add');
+          history.push(`/${checked ? 'employee' : 'device'}/add`);
         }}
+        onSwitchChange={handleSwitchChange}
       />
       <Table
         columns={columns}
