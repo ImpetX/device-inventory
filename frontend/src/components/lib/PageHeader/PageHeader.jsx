@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import grey from '@material-ui/core/colors/grey';
 import makeStyles from '@material-ui/styles/makeStyles';
@@ -27,6 +29,9 @@ const PageHeader = forwardRef((props, ref) => {
   const classes = useStyles();
 
   const {
+    checked,
+    onSwitchChange,
+    switchLabel,
     buttonLabel,
     buttonIcon,
     buttonVariant,
@@ -41,8 +46,21 @@ const PageHeader = forwardRef((props, ref) => {
           {headerText}
         </Typography>
       </div>
-      {buttonLabel && (
-        <div>
+      <div>
+        {switchLabel && (
+          <FormControlLabel
+            control={
+              <Switch
+                checked={checked}
+                onChange={e => onSwitchChange(e)}
+                color="primary"
+              />
+            }
+            label={switchLabel}
+          />
+        )}
+
+        {buttonLabel && (
           <Button
             color="primary"
             icon={buttonIcon}
@@ -50,8 +68,8 @@ const PageHeader = forwardRef((props, ref) => {
             variant={buttonVariant}
             onClick={e => onButtonClick(e)}
           />
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 });
@@ -62,6 +80,9 @@ PageHeader.propTypes = {
   buttonIcon: PropTypes.element,
   buttonVariant: PropTypes.oneOf(['outlined', 'contained']),
   onButtonClick: PropTypes.func,
+  switchLabel: PropTypes.string,
+  checked: PropTypes.bool,
+  onSwitchChange: PropTypes.func,
 };
 
 PageHeader.defaultProps = {
@@ -69,6 +90,9 @@ PageHeader.defaultProps = {
   buttonIcon: null,
   buttonVariant: 'contained',
   onButtonClick: () => {},
+  switchLabel: '',
+  checked: false,
+  onSwitchChange: () => {},
 };
 
 export default PageHeader;
