@@ -57,15 +57,17 @@ const PageHeader = forwardRef((props, ref) => {
 
 PageHeader.propTypes = {
   headerText: PropTypes.string.isRequired,
-  buttonLabel: PropTypes.string.isRequired,
+  buttonLabel: PropTypes.string,
   buttonIcon: PropTypes.element,
   buttonVariant: PropTypes.oneOf(['outlined', 'contained']),
-  onButtonClick: PropTypes.func.isRequired,
+  onButtonClick: PropTypes.func,
 };
 
 PageHeader.defaultProps = {
+  buttonLabel: '',
   buttonIcon: null,
   buttonVariant: 'contained',
+  onButtonClick: () => {},
 };
 
 export default PageHeader;
