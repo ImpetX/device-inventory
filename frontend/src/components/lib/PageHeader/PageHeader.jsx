@@ -14,7 +14,8 @@ const PageHeader = forwardRef((props, ref) => {
       display: 'flex',
       flexWrap: 'nowrap',
       overflow: 'hidden',
-      padding: `${convertToRem(containerSpacing.vertical)} ${convertToRem(15)}`,
+      paddingTop: `${convertToRem(containerSpacing.vertical)}`,
+      paddingBottom: `${convertToRem(containerSpacing.vertical)}`,
       marginBottom: `${convertToRem(containerSpacing.vertical)}`,
     },
 
