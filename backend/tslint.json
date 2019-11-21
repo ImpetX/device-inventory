@@ -1,5 +1,8 @@
 {
   "extends": "tslint:recommended",
+  "linterOptions": {
+    "exclude": ["node_modules", "build/**"]
+  },
   "rules": {
     "lines-between-class-members": [true, 2],
     "max-line-length": {

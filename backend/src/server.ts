@@ -1,1 +1,9 @@
-// levelup.gitconnected.com/setup-express-with-typescript-in-3-easy-steps-484772062e01
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request: express.Request, response: express.Response) => {
+  response.send('Hello world!');
+});
+
+app.listen(5000);
