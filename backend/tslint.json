@@ -13,6 +13,7 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "quotemark": [true, "single"],
-    "variable-name": [true, "allow-leading-underscore"]
+    "variable-name": [true, "allow-leading-underscore"],
+    "no-any": [true, { "ignore-rest-args": true }]
   }
 }
