@@ -1,0 +1,10 @@
+{
+  "extends": "tslint:recommended",
+  "linterOptions": {
+    "exclude": ["node_modules", "build/**"]
+  },
+  "rules": {
+    "quotemark": [true, "single"],
+    "no-any": [true, { "ignore-rest-args": true }]
+  }
+}
