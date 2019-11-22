@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "nodemon",
     "build": "rm -rf ./build && tsc",
-    "start": "node build/server.js"
+    "start": "node build/server.js",
+    "lint": "./node_modules/.bin/tslint -p . -c tslint.json"
   },
   "author": "Kamal Sharif",
   "license": "MIT",
