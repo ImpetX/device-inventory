@@ -1,4 +1,10 @@
 import express from 'express';
+import Db from './db';
+
+const db = new Db();
+
+// tslint:disable-next-line: no-console
+db.connect().then(() => console.log('database is up'));
 
 const app = express();
 
