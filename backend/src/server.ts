@@ -3,8 +3,11 @@ import Db from './db';
 
 const db = new Db();
 
-// tslint:disable-next-line: no-console
-db.connect().then(() => console.log('database is up'));
+db.connect()
+  // tslint:disable-next-line: no-console
+  .then(() => console.log('database is up'))
+  // tslint:disable-next-line: no-console
+  .catch(err => console.error(err));
 
 const app = express();
 
