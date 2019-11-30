@@ -7,12 +7,15 @@
     "start:dev": "nodemon",
     "build": "rm -rf ./build && tsc",
     "start": "node build/server.js",
-    "lint": "./node_modules/.bin/tslint -p . -c tslint.json"
+    "lint": "./node_modules/.bin/tslint -p . -c ./tslint.json",
+    "lint:autofix": "./node_modules/.bin/tslint -p . -c ./tslint.json --fix"
   },
   "author": "Kamal Sharif",
   "license": "MIT",
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.2",
+    "@types/mysql2": "github:types/mysql2",
     "@types/node": "^12.12.11",
     "nodemon": "^1.19.4",
     "ts-node": "^8.5.2",
@@ -20,6 +23,8 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.0.1"
   }
 }

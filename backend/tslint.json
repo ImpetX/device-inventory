@@ -5,6 +5,7 @@
   },
   "rules": {
     "quotemark": [true, "single"],
-    "no-any": [true, { "ignore-rest-args": true }]
+    "no-any": [true, { "ignore-rest-args": true }],
+    "arrow-parens": [true, "ban-single-arg-parens"]
   }
 }
